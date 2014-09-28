@@ -19,3 +19,6 @@ typedef struct item{
 } Item;
 
 typedef Item *ItemPtr;
+
+int id_compare(ItemPtr currentNode, ItemPtr newNode);
+int store_compare(StorePtr currentStore, StorePtr newStore);
