@@ -12,16 +12,16 @@ typedef struct store{
   struct store *nextStore;
 } Store;
 
-typedef store *StorePtr;
+typedef Store *StorePtr;
 
 typedef struct item{
   string name;
   StorePtr *stores;
-  struct node **left;
-  struct node **right;
+  struct item **left;
+  struct item **right;
 } Item;
 
-typedef item *ItemPtr;
+typedef Item *ItemPtr;
 
 int id_compare(ItemPtr currentNode, ItemPtr newNode);
 int store_compare(StorePtr currentStore, StorePtr newStore);
