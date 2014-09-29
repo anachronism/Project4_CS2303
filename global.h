@@ -1,3 +1,6 @@
+#ifndef GLOBAL_H
+#define GLOBAL_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,7 +12,7 @@ typedef struct store{
   struct store *nextStore;
 } Store;
 
-typedef Store *StorePtr;
+typedef store *StorePtr;
 
 typedef struct item{
   string name;
@@ -18,7 +21,9 @@ typedef struct item{
   struct node **right;
 } Item;
 
-typedef Item *ItemPtr;
+typedef item *ItemPtr;
 
 int id_compare(ItemPtr currentNode, ItemPtr newNode);
 int store_compare(StorePtr currentStore, StorePtr newStore);
+
+#endif
