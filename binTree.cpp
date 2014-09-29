@@ -7,6 +7,6 @@ bool Tree::insert(ItemPtr root, ItemPtr new_item, StorePtr newStore){
   return true;
 }
 
-void print_tree(){
+void Tree::print_tree(){
 
 }
