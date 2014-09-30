@@ -1,7 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 #include "global.h"
-/*
+
 class Item{
 	public:
 		string name;
@@ -13,6 +13,6 @@ class Item{
 		Item *right;
 };
 
-typedef Item *ItemPtr; */
+typedef Item *ItemPtr; 
 
 #endif
