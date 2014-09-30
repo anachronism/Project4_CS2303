@@ -1,3 +1,4 @@
+//This part was a joint effort.
 #ifndef ITEM_H
 #define ITEM_H
 #include "global.h"

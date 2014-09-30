@@ -10,9 +10,6 @@ prog4.o: prog4.cpp tree.o store_compare.o item.o
 tree.o: binTree.cpp binTree.h
 	g++ -c -Wall -o tree.o binTree.cpp
 
-##id_compare.o: id_compare.cpp
-##	g++ -c -Wall -o id_compare.o id_compare.cpp
-
 store_compare.o: store_compare.cpp
 	g++ -c -Wall -o store_compare.o store_compare.cpp
 	

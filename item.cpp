@@ -1,13 +1,15 @@
+//By Max
+
 #include "global.h"
 #include "item.h"
 
+//Constructors.
 Item::Item(){
   name = "NULL";
   stores = NULL;
   left = NULL;
   right = NULL;
 }
-
 
 Item::Item(string newName){
   name = newName;
@@ -16,10 +18,12 @@ Item::Item(string newName){
   right = NULL;
 }
 
-
-int Item::id_compare(ItemPtr newNode){
+//Compares the member item to a new item.
+//returns -1 if member item is earlier than new item, 0 if they are the same
+// and 1 if member item is later than new item.
+int Item::id_compare(ItemPtr newItem){
   string current = getName();
-  string new_id = newNode->getName();
+  string new_id = newItem->getName();
 
   if ( current.compare(new_id) < 0){  //if new is lower than current
     return -1;
@@ -33,7 +37,7 @@ int Item::id_compare(ItemPtr newNode){
 
 }
 
-
+//Setters and getters
 string Item::getName(){
   return name;
 }
