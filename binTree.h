@@ -13,6 +13,7 @@ class Tree{
 		void PrintTree();
 	private:
 		void PrintAll(ItemPtr item);
+
 };
 
 #endif
