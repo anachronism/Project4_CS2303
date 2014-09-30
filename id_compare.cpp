@@ -1,30 +1,21 @@
 #include "global.h"
+
 //Function written by Max Li
 
-//Compares the id's of two items.  
+//Compares the id's of two items.   
 
 int id_compare(ItemPtr currentNode, ItemPtr newNode){
   string current = currentNode->name;
-  string new = newNode->name;
+  string new_id = newNode->name;
   
-  //If current is earlier in ascii (hopefully all caps or all lowercase)
-  if(current[0] > new[0]){
+  if ( current.compare(new_id) < 0){  //if new is lower than current
     return -1;
   }
-  else if(current[0] < new[0]){
+  else if(current.compare(new_id) == 0){ // if new is the same as current
+    return 0;
+  }
+  else {  //if new is higher than current
     return 1;
   }
-  else{ //if current[0] == new[0]
-    if(current[1] > new[1]){
-      return -1;
-    }
-    else if(current[1] < new[1]){
-      return 1;
-    }
-    else{
-      return 0;
-    }
-  }
-
 
 } 

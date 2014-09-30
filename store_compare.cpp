@@ -8,10 +8,10 @@
 int store_compare(StorePtr currentStore, StorePtr newStore){
   if(currentStore->x == newStore->x && currentStore->y == newStore->y && currentStore->z == newStore->z)
     return 0;
-  else if(currentStore->countNum > newStore->countNum){
+  else if(currentStore->itemCount >= newStore->itemCount){
     return 1;
   }
-  else if(currentStore->countNum < newStore->countNum){
+  else{        //if(currentStore->itemCount < newStore->itemCount){
     return -1;
   }
 }
