@@ -1,5 +1,5 @@
 #include "global.h"
-
+#include "item.h"
 //Function written by Max Li
 
 //Compares the id's of two items.   
