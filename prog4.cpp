@@ -3,6 +3,7 @@
 #include <string.h>
 #include "global.h"
 #include "binTree.h"
+#include "item.h"
 #include "binTree.cpp"
 #include "id_compare.cpp"
 #include "store_compare.cpp"
