@@ -28,7 +28,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
   curr = root; //Start at root of tree
   prev = NULL;
   
-  /*
+  
   while (curr!=NULL) //Loops till end of tree
   {
 	idComp = id_compare(curr, newItem);
@@ -58,7 +58,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 	idComp = id_compare(prev, newItem); 
 	
   }
-  */
+  
   //Needs to be completed and tested
   return true;
 }
