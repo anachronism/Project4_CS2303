@@ -17,8 +17,8 @@ typedef Store *StorePtr;
 typedef struct item{
   string name;
   StorePtr *stores;
-  struct item **left;
-  struct item **right;
+  struct item *left;
+  struct item *right;
 } Item;
 
 typedef Item *ItemPtr;

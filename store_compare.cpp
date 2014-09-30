@@ -15,3 +15,4 @@ int store_compare(StorePtr currentStore, StorePtr newStore){
     return -1;
   }
 }
+

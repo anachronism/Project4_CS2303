@@ -8,7 +8,7 @@ class Tree{
 	public:
 		Tree();
 		bool isEmpty();
-		bool insert(ItemPtr newItem, StorePtr newStore);
+		bool addItem(ItemPtr newItem, StorePtr newStore);
 		void PrintItem(ItemPtr item);
 		void PrintTree();
 	private:
