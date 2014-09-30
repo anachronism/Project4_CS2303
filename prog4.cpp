@@ -5,8 +5,9 @@
 #include "binTree.h"
 #include "item.h"
 #include "binTree.cpp"
-#include "id_compare.cpp"
+//#include "id_compare.cpp"
 #include "store_compare.cpp"
+#include "item.cpp"
 
 void ReadData(Tree tree);
 void instructions();
@@ -26,16 +27,16 @@ int main () //Author: Alexi
 
 	  //emacs is messing with the whitespaces so I changed these, you can
 	  //change them back.
-	case 0:
+	case 0: 
 	  {
-	    Item L1 = {"L1", NULL, NULL, NULL};
-	    Item L2 = {"L2", NULL, NULL, NULL};
-	    Item M2 = {"M2", NULL, NULL, NULL};
-	    Item L2_2 = {"L2", NULL, NULL, NULL};
+	    ItemPtr L1 = new Item("L1");
+	    ItemPtr L2 = new Item("L2");
+	    ItemPtr M2 = new Item("M2");
+	    ItemPtr L2_2 = new Item("L2");
 	    
-	    cout<<"Compare L1 and L2: "<< id_compare(&L1, &L2) << endl; //should return -1
-	    cout<<"Compare M2 and L2: "<< id_compare(&M2, &L2)<<endl; //should return 1
-	    cout<<"Compare L2 and L2: "<< id_compare(&L2, &L2_2) <<endl; //should return 0
+	    cout<<"Compare " << (L1->getName()) << " and " << (L2->getName()) <<": "<< L1->id_compare(L2) << endl; //should return -1
+	    cout<<"Compare M2 and L2: "<< M2->id_compare(L2)<<endl; //should return 1
+	    cout<<"Compare L2 and L2: "<< L2->id_compare(L2_2) <<endl; //should return 0
 	  }
 	  break;
 	case 1:

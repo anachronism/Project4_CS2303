@@ -31,18 +31,18 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
   
   while (curr!=NULL) //Loops till end of tree
   {
-	idComp = id_compare(curr, newItem);
+    idComp = curr->id_compare(newItem);
 	prev = curr;
 	
 	switch(idComp)
 	{
 		case -1: //If id is lower
-			curr=curr->left;
+		  curr=curr->getLeft();
 		case 0: //if id is same
 			//NEED TO FIGURE OUT WHAT TO DO HERE
 			break;
 		case 1: //If id is greater
-			curr=curr->right;
+		  curr=curr->getRight();
 			break;
 		default:
 			cout<<"There's something wrong with id_compare";
@@ -55,7 +55,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 	root = newItem;
   } else { 
 	//Need to work on logic
-	idComp = id_compare(prev, newItem); 
+	idComp = prev->id_compare(newItem); 
 	
   }
   
@@ -66,8 +66,12 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 //Print a single item
 void Tree::PrintItem(ItemPtr item) //Author: Alexi
 {
-	cout << "Printing item:\n" << "ItemID:" << item->name /*add something here to print event list*/
-	<< endl << "Left Item ID:" << item->left->name << endl << "Right Item ID:" << item->right->name << endl;
+  string leftName, rightName;
+  leftName = (item->getLeft())->getName();
+  rightName = (item->getRight())->getName();
+  
+  cout << "Printing item:\n" << "ItemID:" << item->getName(); /*add something here to print event list*/
+  cout << endl << "Left Item ID:" << leftName << endl << "Right Item ID:" << rightName << endl;
 }
 
 //Print Entire Tree
@@ -80,9 +84,9 @@ void Tree::PrintAll(ItemPtr item) //Author: Alexi
 {
 	if (item != NULL)
 	{
-		PrintAll(item->left);
+	  PrintAll(item->getLeft());
 		PrintItem(item);
-		PrintAll (item->right);
+		PrintAll (item->getRight());
 	} else {
 		cout << "Nothing at this point in tree" <<endl;
 	}

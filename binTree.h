@@ -1,6 +1,7 @@
 #ifndef BINTREE_H
 #define BINTREE_H
 #include "global.h"
+#include "item.h"
 
 class Tree{
 	private:

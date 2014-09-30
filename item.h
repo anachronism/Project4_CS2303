@@ -4,10 +4,18 @@
 
 class Item{
 	public:
-		string name;
 		Item();
-		int id_compare(Item *currentNode, Item *newNode);
+		Item(string newName);
+		int id_compare(Item *newNode);
+
+		string getName();
+		void setName(string);
+		Item *getLeft();
+		Item *getRight();
+		void setLeft(Item *);
+		void setRight(Item *);
 	private:
+		string name;
 		StorePtr *stores;
 		Item *left;
 		Item *right;
