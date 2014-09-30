@@ -23,6 +23,8 @@ typedef struct item{
 
 typedef Item *ItemPtr;
 
+ItemPtr create_item(string name);
+
 int id_compare(ItemPtr currentNode, ItemPtr newNode);
 int store_compare(StorePtr currentStore, StorePtr newStore);
 
