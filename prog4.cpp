@@ -94,3 +94,59 @@ void instructions() //Author: Alexi
 	cout << "Choice of 1 currently tests: store_compare" << endl;
 	cout <<"Please enter a test choice:";
 }
+
+
+
+//Given a pointer to the head pointer, inserts a new store in
+//decreasing item count order.
+void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
+{  
+  int store_comp;
+  StorePtr previousPtr;
+  StorePtr currentPtr;
+
+  previousPtr = NULL;
+  currentPtr = *sPtr;
+
+  store_comp = store_compare(currentPtr, newStore);
+
+  while(store_comp == -1 && currentPtr != NULL){
+    previousPtr = currentPtr;
+    currentPtr = currentPtr->nextStore;
+    store_comp = store_compare(currentPtr, newStore);
+  }
+ 
+  //Check conditions for the while to end.
+  //If at front of list (and not the same as the front of the list, place in the front. 
+  if(previousPtr == NULL && store_compare(currentPtr, newStore) != 0){
+    newStore->nextStore = *sPtr;
+    *sPtr = newStore;
+  }
+
+  //If the store location of the current store is the same as the new one, 
+  //add the number of items in the current store to the new store and 
+  //call the function again.
+  else if(store_comp == 0){
+
+    Store alteredStore = *newStore;
+    (newStore->itemCount) += (currentPtr->itemCount);
+    //delete_store(currentPtr);          //This depends on a currently nonexistent function
+    addStore(sPtr, newStore);
+
+  }
+
+  //Elsewise, insert the store normally.
+  else if(store_comp == 1){
+
+    previousPtr->nextStore = newStore;
+    newStore->nextStore = currentPtr;
+
+  }
+
+  else
+    {
+      cout<<"Something went wrong in addStore." << endl;
+      cout<<endl;
+    }
+  
+}
