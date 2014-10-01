@@ -91,7 +91,7 @@ void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
       currentPtr = currentPtr->nextStore;
     }
     if(currentPtr != NULL){
-      temp = currentPtr;
+      tempPtr = currentPtr;
       previousPtr->nextStore = currentPtr->nextStore;
       free(tempPtr);
     }
