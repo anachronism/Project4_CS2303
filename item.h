@@ -15,6 +15,8 @@ class Item{
 		Item *getRight();
 		void setLeft(Item *);
 		void setRight(Item *);
+		StorePtr *getStores();
+		void setStores(StorePtr);
 	private:
 		string name;
 		StorePtr *stores;

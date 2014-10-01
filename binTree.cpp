@@ -3,6 +3,8 @@
 
 #include "global.h"
 #include "binTree.h"
+#include "item.h"
+#include "item.cpp"
 #include <iostream>
 #include <string.h>
 
@@ -39,7 +41,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 		case -1: //If id is lower
 			curr=curr->getLeft();
 		case 0: //if id is same
-			addStore(curr->stores, newStore);
+			addStore((*curr).getStores, newStore);
 			break;
 		case 1: //If id is greater
 		  curr=curr->getRight();
@@ -57,11 +59,11 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 	idComp = prev->id_compare(newItem); //compares previous and new
 	switch (idComp) {
 		case -1:
-			addStore(newItem->stores, newStore);
+			addStore((newItem->getStores), newStore);
 			prev->setLeft(newItem);
 			break;
 		case 1:
-			addStore(newItem->stores, newStore);
+			addStore((newItem->getStores), newStore);
 			prev->setRight(newItem);
 			break;
 		default:

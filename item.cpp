@@ -61,3 +61,11 @@ void Item::setLeft(ItemPtr newPtr){
 void Item::setRight(ItemPtr newPtr){
   right = newPtr;
 }
+
+StorePtr *Item::getStores(){
+  return stores;
+}
+
+void Item::setStores(StorePtr store){
+  stores = &store;
+}

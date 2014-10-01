@@ -95,7 +95,8 @@ void ReadData(Tree tree) //Author: Alexi
 			cin>>itemCount;
 			/*
 			Store tempStore = {x, y, z, itemCount, NULL};
-			Item tempItem = {name, NULL, NULL, NULL};
+			//make pointer to tempStore
+			Item tempItem = new Item(name);
 			tree.addItem(tempItem, tempStore); */
 		}
 	} //end for
