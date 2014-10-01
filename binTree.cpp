@@ -55,7 +55,6 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
   {
 	root = newItem;
   } else { 
-	//Need to work on logic
 	idComp = prev->id_compare(newItem); //compares previous and new
 	switch (idComp) {
 		case -1:

@@ -53,6 +53,23 @@ int main () //Author: Alexi
 	    cout<<"Compare 3 items and 3 items (same location): "<<store_compare(&s1, &s3)<<endl;
 	  }
 	  break;
+	case 2: //test addItem
+		cout<<"Testing addItem"
+		{
+		ItemPtr L1 = new Item("L1");
+	    ItemPtr L2 = new Item("L2");
+	    ItemPtr M2 = new Item("M2");
+	    ItemPtr L2_2 = new Item("L2");
+		
+		Store s0 = {0,0,0, 4, NULL};
+	    Store s1 = {1, 1, 1, 3, NULL};
+	    Store s2 = {2, 2, 1, 3, NULL};
+	    Store s3 = {1, 1, 1, 3, NULL};
+		
+		itemTree.addItem((*L1), s0);
+		item.Tree.printTree();
+		}
+		break;
 	default:
 	  cout<<"Improper or no test chosen\n";
 	  break;
@@ -109,7 +126,7 @@ void instructions() //Author: Alexi
 	cout <<"Please enter a test choice:";
 }
 
-/*
+
 
 //Given a pointer to the head pointer, inserts a new store in
 //decreasing item count order.
@@ -144,7 +161,7 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
 
     Store alteredStore = *newStore;
     (newStore->itemCount) += (currentPtr->itemCount);
-    removeStore(sPtr, currentPtr);       
+    //delete_store(currentPtr);          //This depends on a currently nonexistent function
     addStore(sPtr, newStore);
 
   }
@@ -164,4 +181,3 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
     }
   
 }
-*/
