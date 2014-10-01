@@ -37,9 +37,9 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 	switch(idComp)
 	{
 		case -1: //If id is lower
-		  curr=curr->getLeft();
+			curr=curr->getLeft();
 		case 0: //if id is same
-			//NEED TO FIGURE OUT WHAT TO DO HERE
+			addStore(curr->stores, newStore);
 			break;
 		case 1: //If id is greater
 		  curr=curr->getRight();
@@ -49,13 +49,25 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 			break;
 	}
   } //end while
-  
-  if (prev==NULL)
+  if (prev==NULL) //If tree is empty
   {
 	root = newItem;
   } else { 
 	//Need to work on logic
-	idComp = prev->id_compare(newItem); 
+	idComp = prev->id_compare(newItem); //compares previous and new
+	switch (idComp) {
+		case -1:
+			addStore(newItem->stores, newStore);
+			prev->setLeft(newItem);
+			break;
+		case 1:
+			addStore(newItem->stores, newStore);
+			prev->setRight(newItem);
+			break;
+		default:
+			cout<<"There's something wrong with second id_compare";
+			break;
+	}
 	
   }
   

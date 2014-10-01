@@ -74,9 +74,20 @@ void ReadData(Tree tree) //Author: Alexi
 	{
 		int x, y, z, itemNumber;
 		cout << "Reading in data\n";
-		cin>>x;
+		cin>>x; 
+		if (x==16)
+			Sentinel++;
 		cin>>y;
+		if (y==16)
+			Sentinel++;
 		cin>>z;
+		if (z==16)
+			Sentinel++;
+		if (Sentinel==3){
+			break;
+		} else {
+			sentcount=0;
+		}
 		cin>>itemNumber;
 		for (counter = 0; counter < itemNumber; counter++)
 		{
@@ -85,7 +96,7 @@ void ReadData(Tree tree) //Author: Alexi
 			/*
 			Store tempStore = {x, y, z, itemCount, NULL};
 			Item tempItem = {name, NULL, NULL, NULL};
-			tree.insert(tempItem, tempStore); */
+			tree.addItem(tempItem, tempStore); */
 		}
 	} //end for
 } //end ReadData
