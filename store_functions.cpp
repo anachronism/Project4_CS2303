@@ -73,7 +73,7 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
 }
 
 void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
-  StorePtr newPtr;
+  StorePtr tempPtr;
   StorePtr previousPtr;
   StorePtr currentPtr;
 
@@ -84,15 +84,15 @@ void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
   }
   else{
     previousPtr = *sPtr;
-    currentPtr = (*sPtr)->nextPtr;
+    currentPtr = (*sPtr)->nextStore;
 
     while(currentPtr != NULL && currentPtr != toRemove){
       previousPtr = currentPtr;
-      currentPtr = currentPtr->nextPtr;
+      currentPtr = currentPtr->nextStore;
     }
     if(currentPtr != NULL){
       temp = currentPtr;
-      previousPtr->nextPtr = currentPtr->nextPtr;
+      previousPtr->nextStore = currentPtr->nextStore;
       free(tempPtr);
     }
   }
