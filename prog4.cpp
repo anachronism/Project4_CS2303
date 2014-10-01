@@ -6,7 +6,7 @@
 #include "item.h"
 #include "binTree.cpp"
 //#include "id_compare.cpp"
-#include "store_compare.cpp"
+#include "store_functions.cpp"
 #include "item.cpp"
 
 void ReadData(Tree tree);
@@ -54,7 +54,7 @@ int main () //Author: Alexi
 	  }
 	  break;
 	case 2: //test addItem
-		cout<<"Testing addItem"
+	  cout<<"Testing addItem";
 		{
 		ItemPtr L1 = new Item("L1");
 	    ItemPtr L2 = new Item("L2");

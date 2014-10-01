@@ -1,15 +1,19 @@
 //By Max
+#ifndef ITEM_CPP
+#define ITEM_CPP
 
 #include "global.h"
 #include "item.h"
 
 //Constructors.
+
 Item::Item(){
   name = "NULL";
   stores = NULL;
   left = NULL;
   right = NULL;
 }
+
 
 Item::Item(string newName){
   name = newName;
@@ -69,3 +73,5 @@ StorePtr *Item::getStores(){
 void Item::setStores(StorePtr store){
   stores = &store;
 }
+
+#endif
