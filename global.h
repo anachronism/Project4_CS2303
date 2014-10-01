@@ -18,5 +18,6 @@ int store_compare(StorePtr currentStore, StorePtr newStore);
 
 void addStore(StorePtr *sPtr, StorePtr newStore);
 
+void removeStore(StorePtr *sPtr,StorePtr toRemove);
 
 #endif

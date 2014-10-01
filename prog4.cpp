@@ -109,7 +109,7 @@ void instructions() //Author: Alexi
 	cout <<"Please enter a test choice:";
 }
 
-
+/*
 
 //Given a pointer to the head pointer, inserts a new store in
 //decreasing item count order.
@@ -144,7 +144,7 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
 
     Store alteredStore = *newStore;
     (newStore->itemCount) += (currentPtr->itemCount);
-    //delete_store(currentPtr);          //This depends on a currently nonexistent function
+    removeStore(sPtr, currentPtr);       
     addStore(sPtr, newStore);
 
   }
@@ -164,3 +164,4 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
     }
   
 }
+*/
