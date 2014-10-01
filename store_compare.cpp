@@ -18,3 +18,29 @@ int store_compare(StorePtr currentStore, StorePtr newStore){
   }
 }
 
+
+void removeStore(StorePtr *sPtr,StorePtr toRemove){
+  StorePtr newPtr;
+  StorePtr previousPtr;
+  StorePtr currentPtr;
+
+  if(*sPtr == toRemove){
+    tempPtr = *sPtr;
+    *sPtr = (*sPtr)->nextStore;
+    free(tempPtr);
+  }
+  else{
+    previousPtr = *sPtr;
+    currentPtr = (*sPtr)->nextPtr;
+
+    while(currentPtr != NULL && currentPtr != toRemove){
+      previousPtr = currentPtr;
+      currentPtr = currentPtr->nextPtr;
+    }
+    if(currentPtr != NULL){
+      temp = currentPtr;
+      previousPtr->nextPtr = currentPtr->nextPtr;
+      free(tempPtr);
+    }
+  }
+}

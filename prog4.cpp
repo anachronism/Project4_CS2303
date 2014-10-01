@@ -85,7 +85,7 @@ void ReadData(Tree tree) //Author: Alexi
 			/*
 			Store tempStore = {x, y, z, itemCount, NULL};
 			Item tempItem = {name, NULL, NULL, NULL};
-			insert(tree, tempItem, tempStore); */
+			tree.insert(tempItem, tempStore); */
 		}
 	} //end for
 } //end ReadData
