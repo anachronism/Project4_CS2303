@@ -1,4 +1,3 @@
-//Written by Max Li
 #ifndef STOREFUNCTION_CPP
 #define STOREFUNCTION_CPP
 #include "global.h"
@@ -10,7 +9,7 @@ bool debugAddStore = false;
 // than new store then return -1 to tell the outer function to check the next store.  Any remaining 
 // functionality yet to be implemented.
 
-int store_compare(StorePtr currentStore, StorePtr newStore){
+int store_compare(StorePtr currentStore, StorePtr newStore){ //Author: Max
   if (currentStore == NULL){
 	return -2;
   } else if (currentStore->x == newStore->x && currentStore->y == newStore->y && currentStore->z == newStore->z) {
@@ -109,12 +108,32 @@ void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
   }
 }
 
-void printStore(StorePtr store){
+void printStore(StorePtr store){  //Author: Alexi
 	if (store == NULL){
 		cout<<"StorePtr is NULL"; 
 	} else {
 		cout<<"Store's Position is x:" << store->x <<" y:" << store->y <<" z:" << store->z <<endl;
 		cout<<"Store's itemCount is:" << store->itemCount<<endl;
 	}
+}
+
+void printStoreList(StorePtr *store){ //Author: Alexi
+	StorePtr curr;
+	StorePtr prev;
+	
+	prev = NULL;
+	
+	if (store == NULL){
+		cout << "Store List is empty\n";
+	} else {
+		curr = *store;
+		while (curr!=NULL){
+			printStore(curr);
+			prev = curr;
+			curr = curr->nextStore;
+		}
+		cout<< "Hit end of store list\n";
+	}
+
 }
 #endif

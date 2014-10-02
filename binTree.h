@@ -12,6 +12,7 @@ class Tree{
 		bool addItem(ItemPtr newItem, StorePtr newStore);
 		void PrintItem(ItemPtr item);
 		void PrintTree();
+		ItemPtr getRoot();
 	private:
 		void PrintAll(ItemPtr item);
 		int test;

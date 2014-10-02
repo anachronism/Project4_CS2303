@@ -126,4 +126,8 @@ void Tree::PrintAll(ItemPtr item) //Author: Alexi
 	}
 }
 
+ItemPtr Tree::getRoot(){
+	return root;
+}
+
 #endif

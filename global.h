@@ -22,4 +22,6 @@ void removeStore(StorePtr *sPtr,StorePtr toRemove);
 
 void printStore(StorePtr store);
 
+void printStoreList(StorePtr *store);
+
 #endif
