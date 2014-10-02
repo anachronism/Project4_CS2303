@@ -73,13 +73,13 @@ int main () //Author: Alexi
 		L2->printItem();
 		M2->printItem();
 		cout << "Adding to tree\n";
-		itemTree->addItem(L1, &s0);
+		itemTree->addItem(L2, &s0);
 		cout<<"Added first successfully\n";
 		itemTree->PrintTree();
-		itemTree->addItem(L2, &s1);
+		itemTree->addItem(M2, &s1);
 		cout<<"Added second successfully\n";
 		itemTree->PrintTree();
-		itemTree->addItem(M2, &s2);
+		itemTree->addItem(L1, &s2);
 		cout<<"Added third successfully\n";
 		cout << "Printing Tree:\n\n";
 		itemTree->PrintTree();
