@@ -20,4 +20,6 @@ void addStore(StorePtr *sPtr, StorePtr newStore);
 
 void removeStore(StorePtr *sPtr,StorePtr toRemove);
 
+void printStore(StorePtr store);
+
 #endif

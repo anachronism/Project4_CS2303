@@ -41,7 +41,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
   {
     idComp = curr->id_compare(newItem);
 	if (debugAdd)
-		cout << "idCompare generates value of: " << idComp <<endl;
+		cout << "idCompare of" << (curr->getName()) <<" and "<< (newItem->getName()) <<" generates value of: " << idComp <<endl;
 	prev = curr;
 	
 	switch(idComp)
