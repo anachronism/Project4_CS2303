@@ -29,6 +29,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
   ItemPtr curr = NULL;
   ItemPtr prev;
   int idComp;
+  bool equal = false;
   
   curr = root; //Start at root of tree
   prev = NULL;
@@ -37,7 +38,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 	bool empty = isEmpty();
 	cout << "Is tree Empty?: " << empty <<endl ;
   }
-  while (curr!=NULL) //Loops till end of tree
+  while (curr!=NULL and !equal) //Loops till end of tree
   {
     idComp = curr->id_compare(newItem);
 	if (debugAdd)
@@ -51,6 +52,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 			break;
 		case 0: //if id is same
 			addStore((*curr).getStores(), newStore);
+			equal=true;
 			break;
 		case 1: //If id is greater
 		  curr=curr->getRight();
@@ -63,7 +65,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
   if (prev==NULL) //If tree is empty
   {
 	root = newItem;
-  } else { 
+  } else if (!equal) { 
 	idComp = prev->id_compare(newItem); //compares previous and new
 	switch (idComp) {
 		case -1:

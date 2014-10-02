@@ -41,7 +41,7 @@ int main () //Author: Alexi
 	    cout<<"Compare L2 and L2: "<< L2->id_compare(L2_2) <<endl; //should return 0
 	  }
 	  break;
-	case 1:
+	case 1: //Test store_compare
 	  cout << "store_compare test here\n";
 	  {
 	    Store s0 = {0,0,0, 4, NULL};
@@ -55,7 +55,7 @@ int main () //Author: Alexi
 	    cout<<"Compare 3 items and 3 items (same location): "<<store_compare(&s1, &s3)<<endl;
 	  }
 	  break;
-	case 2: //test addItem
+	case 2: //test addItem. Seems to work fine
 	  cout<<"Testing addItem\n";
 		{
 		ItemPtr L1 = new Item("L1");
@@ -73,18 +73,30 @@ int main () //Author: Alexi
 		L2->printItem();
 		M2->printItem();
 		cout << "Adding to tree\n";
+		
 		itemTree->addItem(L2, &s0);
 		cout<<"Added first successfully\n";
+		cout << "Printing Tree:\n\n";
 		itemTree->PrintTree();
+		
 		itemTree->addItem(M2, &s1);
 		cout<<"Added second successfully\n";
+		cout << "Printing Tree:\n\n";
 		itemTree->PrintTree();
+		
 		itemTree->addItem(L1, &s2);
 		cout<<"Added third successfully\n";
 		cout << "Printing Tree:\n\n";
 		itemTree->PrintTree();
+		
+		itemTree->addItem(L2_2, &s3);
+		cout<<"Added fourth successfully\n";
+		cout << "Printing Tree:\n\n";
+		itemTree->PrintTree();
 		}
 		break;
+	case 3: //An unwritten test for addStore 
+		cout << "Testing addStore\n";
 	default:
 	  cout<<"Improper or no test chosen\n";
 	  break;
