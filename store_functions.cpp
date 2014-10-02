@@ -31,13 +31,17 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
 
   previousPtr = NULL;
 	if (debugAddStore){
-		if (*sPtr == NULL){
+		if (sPtr == NULL){
 			cout << "sPtr is Null\n";
 		} else {
 			cout << "sPtr is not Null\n";
 		}
 	}
-  currentPtr = *sPtr;
+	if (sPtr==NULL){
+		currentPtr=NULL;
+	} else {
+		currentPtr = *sPtr;
+	}
 
   store_comp = store_compare(currentPtr, newStore);
 
