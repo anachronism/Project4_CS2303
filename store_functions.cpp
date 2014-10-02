@@ -30,14 +30,14 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
   StorePtr currentPtr;
 
   previousPtr = NULL;
-	if (debugAddStore){
+	if (debugAddStore){ //Test to see if sPtr is null
 		if (sPtr == NULL){
 			cout << "sPtr is Null\n";
 		} else {
 			cout << "sPtr is not Null\n";
 		}
 	}
-	if (sPtr==NULL){
+	if (sPtr==NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
 		currentPtr=NULL;
 	} else {
 		currentPtr = *sPtr;
