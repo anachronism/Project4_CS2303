@@ -1,3 +1,5 @@
+#ifndef PROG4_CPP
+#define PROG4_CPP
 
 #include <iostream>
 #include <string.h>
@@ -54,7 +56,7 @@ int main () //Author: Alexi
 	  }
 	  break;
 	case 2: //test addItem
-	  cout<<"Testing addItem";
+	  cout<<"Testing addItem\n";
 		{
 		ItemPtr L1 = new Item("L1");
 	    ItemPtr L2 = new Item("L2");
@@ -66,8 +68,21 @@ int main () //Author: Alexi
 	    Store s2 = {2, 2, 1, 3, NULL};
 	    Store s3 = {1, 1, 1, 3, NULL};
 		
-		item.Tree.addItem((*L1), s0);
-		item.Tree.printTree();
+		cout << "Testing item:\n";
+		L1->printItem();
+		L2->printItem();
+		M2->printItem();
+		cout << "Adding to tree\n";
+		itemTree->addItem(L1, &s0);
+		cout<<"Added first successfully\n";
+		itemTree->PrintTree();
+		itemTree->addItem(L2, &s1);
+		cout<<"Added second successfully\n";
+		itemTree->PrintTree();
+		itemTree->addItem(M2, &s2);
+		cout<<"Added third successfully\n";
+		cout << "Printing Tree:\n\n";
+		itemTree->PrintTree();
 		}
 		break;
 	default:
@@ -123,6 +138,7 @@ void instructions() //Author: Alexi
 {
 	cout <<"Choice of 0 currently tests: id_compare\n";
 	cout << "Choice of 1 currently tests: store_compare" << endl;
+	cout << "Choice of 2 currently tests: addItem and PrintTree\n";
 	cout <<"Please enter a test choice:";
 }
-
+#endif

@@ -1,6 +1,9 @@
 //Written by Max Li
-
+#ifndef STOREFUNCTION_CPP
+#define STOREFUNCTION_CPP
 #include "global.h"
+
+bool debugAddStore = true;
 
 // If stores are the same, return 0, if the new store has more items than the current store, return 
 // 1 to tell the outer function to insert before the current store, if current store has less count 
@@ -27,6 +30,13 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
   StorePtr currentPtr;
 
   previousPtr = NULL;
+	if (debugAddStore){
+		if (*sPtr == NULL){
+			cout << "sPtr is Null\n";
+		} else {
+			cout << "sPtr is not Null\n";
+		}
+	}
   currentPtr = *sPtr;
 
   store_comp = store_compare(currentPtr, newStore);
@@ -97,3 +107,4 @@ void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
     }
   }
 }
+#endif

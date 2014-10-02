@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string.h>
 
+bool debugAdd = true;
 //default constructor
 Tree::Tree()
 {
@@ -23,23 +24,31 @@ bool Tree::isEmpty() //Author: Alexi
 
 //Adds new item to tree
 bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
-  ItemPtr curr;
+  if (debugAdd)
+	cout<<"Beginning to add item" << newItem->getName() << endl;
+  ItemPtr curr = NULL;
   ItemPtr prev;
   int idComp;
   
   curr = root; //Start at root of tree
   prev = NULL;
   
-  
+  if (debugAdd){
+	bool empty = isEmpty();
+	cout << "Is tree Empty?: " << empty <<endl ;
+  }
   while (curr!=NULL) //Loops till end of tree
   {
     idComp = curr->id_compare(newItem);
+	if (debugAdd)
+		cout << "idCompare generates value of: " << idComp <<endl;
 	prev = curr;
 	
 	switch(idComp)
 	{
 		case -1: //If id is lower
 			curr=curr->getLeft();
+			break;
 		case 0: //if id is same
 			addStore((*curr).getStores(), newStore);
 			break;
@@ -97,9 +106,19 @@ void Tree::PrintAll(ItemPtr item) //Author: Alexi
 {
 	if (item != NULL)
 	{
-	  PrintAll(item->getLeft());
-		PrintItem(item);
-		PrintAll (item->getRight());
+		if (item->getLeft() ==NULL && item->getRight() == NULL){
+			(*item).printItem();
+		} else if (item->getLeft() == NULL) {
+			(*item).printItem();
+			PrintAll (item->getRight());
+		} else if (item->getRight()==NULL) {
+			PrintAll(item->getLeft());
+			(*item).printItem();
+		} else {
+			PrintAll(item->getLeft());
+			(*item).printItem();
+			PrintAll (item->getRight());
+		}
 	} else {
 		cout << "Nothing at this point in tree" <<endl;
 	}

@@ -67,11 +67,19 @@ void Item::setRight(ItemPtr newPtr){
 }
 
 StorePtr *Item::getStores(){
-  return stores;
+	if (stores != NULL){
+		return stores;
+	} else {
+		return NULL;
+	}
 }
 
 void Item::setStores(StorePtr store){
   stores = &store;
+}
+
+void Item::printItem(){
+	cout<<"Name of Item is:" << name << endl;
 }
 
 #endif
