@@ -13,7 +13,7 @@ bool debugAddStore = false;
 
 int store_compare(StorePtr currentStore, StorePtr newStore){ //Author: Max
   if (currentStore == NULL){
-	return -2;
+	return 1;
   } else if (currentStore->x == newStore->x && currentStore->y == newStore->y && currentStore->z == newStore->z) {
     return 0;
   } else if((currentStore->itemCount) <= (newStore->itemCount)){
@@ -103,7 +103,10 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		//If the store location of the current store is the same as the new one,
 		//add the number of items in the current store to the new store and
 		//call the function
-
+		
+		else if(currentPtr == NULL){
+		  previousPtr->nextStore = newStore;
+		}
 
 		//Elsewise, insert the store normally.
 		else if(store_comp == 1){
