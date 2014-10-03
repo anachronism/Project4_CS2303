@@ -4,6 +4,7 @@
 #include "global.h"
 
 class Item{
+  friend void addStore(StorePtr *sPtr, StorePtr newStore);
 	public:
 		Item();
 		Item(string newName);

@@ -16,7 +16,9 @@ typedef Store *StorePtr;
 
 int store_compare(StorePtr currentStore, StorePtr newStore);
 
-void addStore(StorePtr *sPtr, StorePtr newStore);
+//void addStore(StorePtr *sPtr, StorePtr newStore);
+
+//void addStore(ItemPtr itPtr, StorePtr newStore);
 
 void removeStore(StorePtr *sPtr,StorePtr toRemove);
 

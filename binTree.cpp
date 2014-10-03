@@ -7,6 +7,8 @@
 #include "item.cpp"
 #include <iostream>
 #include <string.h>
+#include "store_functions.cpp"
+void addStore(ItemPtr itPtr, StorePtr newStore);
 
 bool debugAdd = true;
 //default constructor
@@ -51,7 +53,8 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 			curr=curr->getLeft();
 			break;
 		case 0: //if id is same
-			addStore((*curr).getStores(), newStore);
+			//addStore((*curr).getStores, newStore);
+		  addStore(curr, newStore);
 			equal=true;
 			break;
 		case 1: //If id is greater
@@ -69,13 +72,15 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 	idComp = prev->id_compare(newItem); //compares previous and new
 	switch (idComp) {
 		case -1:
-			addStore((*newItem).getStores(), newStore);
-			prev->setLeft(newItem);
-			break;
+		  //addStore((*newItem).getStores(), newStore);
+		  addStore(newItem, newStore);
+		  prev->setLeft(newItem);
+		  break;
 		case 1:
-			addStore((*newItem).getStores(), newStore);
-			prev->setRight(newItem);
-			break;
+		  //addStore((*newItem).getStores(), newStore);
+		  addStore(newItem, newStore);
+		  prev->setRight(newItem);
+		  break;
 		default:
 			cout<<"There's something wrong with second id_compare";
 			break;

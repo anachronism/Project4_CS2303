@@ -1,7 +1,8 @@
 #ifndef STOREFUNCTION_CPP
 #define STOREFUNCTION_CPP
 #include "global.h"
-
+#include "item.h"
+#include "item.cpp"
 bool debugAddStore = false;
 
 // If stores are the same, return 0, if the new store has more items than the current store, return 
@@ -24,11 +25,14 @@ int store_compare(StorePtr currentStore, StorePtr newStore){ //Author: Max
 
 //Given a pointer to the head pointer, inserts a new store in
 //decreasing item count order.
-void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
+//void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
+void addStore(ItemPtr itPtr, StorePtr newStore)
 {
   int store_comp;
   StorePtr previousPtr;
   StorePtr currentPtr;
+  StorePtr *sPtr;
+  sPtr = itPtr->getStores();
 
   previousPtr = NULL;
 	if (debugAddStore){ //Test to see if sPtr is null
@@ -67,7 +71,7 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
 			Store alteredStore = *newStore;
 			(newStore->itemCount) += (currentPtr->itemCount);
 			removeStore(sPtr, currentPtr);
-			addStore(sPtr, newStore);
+			addStore(itPtr, newStore);
 		}
 		//Elsewise, insert the store normally.
 		else if(store_comp == 1){
@@ -80,6 +84,8 @@ void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
 		  cout<<endl;
 		}
 	}
+
+	itPtr->setStores(*sPtr);
 }
 
 void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max

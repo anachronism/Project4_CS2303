@@ -13,6 +13,9 @@
 
 void ReadData(Tree tree);
 void instructions();
+//void addStore(ItemPtr itPtr, StorePtr newStore);
+
+
 
 //use mainly as a driver function
 int main () //Author: Alexi
@@ -112,7 +115,7 @@ int main () //Author: Alexi
 		printStoreList(L1->getStores());
 		cout << "Going to add following store\n";
 		printStore(&s0);
-		addStore ((L1->getStores()), &s0);
+		addStore (L1, &s0);
 		printStoreList(L1->getStores());
 		}
 		break;
