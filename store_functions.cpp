@@ -51,7 +51,11 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		//currentPtr=NULL;
 	} else {
 		currentPtr = *sPtr;
+
 		store_comp = store_compare(currentPtr, newStore);
+		
+		//test
+		cout<<store_comp<<endl;
 			
 		while(store_comp == -1 && currentPtr != NULL){
 			previousPtr = currentPtr;
@@ -75,8 +79,11 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		}
 		//Elsewise, insert the store normally.
 		else if(store_comp == 1){
-			previousPtr->nextStore = newStore;
-			newStore->nextStore = currentPtr;
+		  
+		  //////
+		  //cout<<newStore.name<<endl;
+		  previousPtr->nextStore = newStore;
+		  newStore->nextStore = currentPtr;
 		}
 		else
 		{

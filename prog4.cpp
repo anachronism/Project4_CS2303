@@ -106,16 +106,22 @@ int main () //Author: Alexi
 	    ItemPtr M2 = new Item("M2");
 	    ItemPtr L2_2 = new Item("L2");
 		
-		Store s0 = {0,0,0, 4, NULL};
+	    Store s0 = {0,0,0, 4, NULL};
 	    Store s1 = {1, 1, 1, 3, NULL};
-	    Store s2 = {2, 2, 1, 3, NULL};
-	    Store s3 = {1, 1, 1, 3, NULL};
-		
+	    Store s2 = {2, 2, 1, 2, NULL};
+	    Store s3 = {1, 1, 1, 5, NULL};
+	    /*
 		cout<<"Printing store list for L1:\n";
 		printStoreList(L1->getStores());
+	    */
 		cout << "Going to add following store\n";
 		printStore(&s0);
+		cout<<endl;
+
 		addStore (L1, &s0);
+		addStore(L1, &s1);
+		//addStore(L1, &s2);
+		//addStore(L1, &s3);
 		printStoreList(L1->getStores());
 		}
 		break;
@@ -133,31 +139,33 @@ int main () //Author: Alexi
 	    Store s3 = {1, 1, 1, 3, NULL};
 		
 		cout << "Testing item:\n";
-		L1->printItem();
-		L2->printItem();
-		M2->printItem();
+		//L1->printItem();
+		//L2->printItem();
+		//M2->printItem();
 		cout << "Adding to tree\n";
 		
 		itemTree->addItem(L2, &s0);
 		cout<<"Added first successfully\n";
 		cout<<"Printing store list:\n";
-		//printStoreList((*itemTree)->getRoot()->getStores());
-
+		printStoreList(((*itemTree).getRoot())->getStores());
+		cout<<endl;
 		
 		itemTree->addItem(M2, &s1);
 		cout<<"Added second successfully\n";
 		cout<<"Printing store list:\n";
-		//printStoreList((*itemTree)->getRoot()->getStores());
-		
+		printStoreList(((*itemTree).getRoot())->getStores());
+		cout<<endl;
+
 		itemTree->addItem(L1, &s2);
 		cout<<"Added third successfully\n";
 		cout<<"Printing store list:\n";
-		//printStoreList((*itemTree)->getRoot()->getStores());
-		
+		printStoreList(((*itemTree).getRoot())->getStores());
+		cout<<endl;
+
 		itemTree->addItem(L2_2, &s3);
 		cout<<"Added fourth successfully\n";
 		cout<<"Printing store list:\n";
-		//printStoreList((*itemTree)->getRoot()->getStores());
+		printStoreList(((*itemTree).getRoot())->getStores());
 		}
 		break;
 	default:
