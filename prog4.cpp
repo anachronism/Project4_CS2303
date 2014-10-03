@@ -220,7 +220,7 @@ int main () //Author: Alexi
 
 void ReadData(Tree tree) //Author: Alexi
 {
-	int Sentinel = 0, counter = 0, itemCount;
+	int Sentinel = 0, counter = 0, itemCount = 0;
 	string name;
 	
 	while (Sentinel != 2)  //Going to represent 16 16 16, need to rework logic slightly
@@ -248,16 +248,18 @@ void ReadData(Tree tree) //Author: Alexi
 			cin>>itemCount;
 			
 			Store tempStore = {x, y, z, itemCount, NULL};
-			//make pointer to tempStore
 			ItemPtr tempItem = new Item(name);
+			
 			if (debugRead){
-				cout << "Printing temporary item and store\n";
+				cout << "\nPrinting temporary item and store\n";
 				tempItem->printItem();
 				printStore(&tempStore);
 			}
 			if (debugRead)
 				cout << "Adding item:\n";
 			tree.addItem(tempItem, &tempStore); 
+			cout << "\n TREE \n";
+			tree.PrintTree();
 		}
 		if (debugRead)
 			cout << "Printing tree:\n";

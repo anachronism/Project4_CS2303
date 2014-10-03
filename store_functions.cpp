@@ -118,7 +118,7 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 	}
 
 	itPtr->setStores(sPtr);	
-	cout<<"end of add store"<<endl;
+	//cout<<"end of add store"<<endl;
 }
 
 void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
