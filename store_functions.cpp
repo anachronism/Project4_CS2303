@@ -13,7 +13,7 @@ bool debugAddStore = false;
 
 int store_compare(StorePtr currentStore, StorePtr newStore){ //Author: Max
   if (currentStore == NULL){
-	return -2;
+	return 1;
   } else if (currentStore->x == newStore->x && currentStore->y == newStore->y && currentStore->z == newStore->z) {
     return 0;
   } else if((currentStore->itemCount) <= (newStore->itemCount)){
@@ -112,8 +112,8 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		}
 		else
 		{
-		  cout<<"Something went wrong in addStore." << endl;
-		  cout<<endl;
+		  //cout<<"Something went wrong in addStore." << endl;
+		  //cout<<endl;
 		}
 	}
 

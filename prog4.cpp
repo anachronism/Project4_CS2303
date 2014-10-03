@@ -235,7 +235,7 @@ void ReadData(Tree itemTree) //Author: Alexi
 		z = 0;
 		itemNumber = 0;
 		
-		cout << "Reading in data\n";
+		//cout << "Reading in data\n";
 		cin>>x; 
 		if (x==16)
 		  Sentinel++;
@@ -284,8 +284,9 @@ void ReadData(Tree itemTree) //Author: Alexi
 		}
 		if (debugRead)
 			cout << "Printing tree:\n";
-		tree.PrintTree();
+		
 	} //end for
+	tree.PrintTree();
 } //end ReadData
 
 void instructions() //Author: Alexi
