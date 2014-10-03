@@ -226,29 +226,44 @@ void ReadData(Tree tree) //Author: Alexi
 	while (Sentinel != 2)  //Going to represent 16 16 16, need to rework logic slightly
 	{
 		int x, y, z, itemNumber;
+		x = 0;
+		y = 0;
+		z = 0;
+		itemNumber = 0;
+		
 		cout << "Reading in data\n";
 		cin>>x; 
 		if (x==16)
-			Sentinel++;
+		  Sentinel++;
 		cin>>y;
 		if (y==16)
-			Sentinel++;
+		  Sentinel++;
 		cin>>z;
 		if (z==16)
-			Sentinel++;
+		  Sentinel++;
 		if (Sentinel==3){
-			break;
+		  break;
 		} else {
-			Sentinel=0;
+		  Sentinel=0;
 		}
 		cin>>itemNumber;
+
 		for (counter = 0; counter < itemNumber; counter++)
 		{
-			cin>>name;
-			cin>>itemCount;
-			
-			Store tempStore = {x, y, z, itemCount, NULL};
-			ItemPtr tempItem = new Item(name);
+		  name = " ";
+		  itemCount = 0;
+		  
+		  cin>>name;
+		  cin>>itemCount;
+
+		  StorePtr tempStorePtr = new Store();
+		  tempStorePtr->x = x;
+		  tempStorePtr->y = y;
+		  tempStorePtr->z = z;
+		  tempStorePtr->itemCount = itemCount;
+		  tempStorePtr->nextStore = NULL;
+		  Store tempStore = *tempStorePtr;
+		  ItemPtr tempItem = new Item(name);
 			
 			if (debugRead){
 				cout << "\nPrinting temporary item and store\n";
@@ -256,6 +271,7 @@ void ReadData(Tree tree) //Author: Alexi
 				printStore(&tempStore);
 			}
 			if (debugRead)
+			  tree.PrintTree();
 				cout << "Adding item:\n";
 			tree.addItem(tempItem, &tempStore); 
 			cout << "\n TREE \n";
