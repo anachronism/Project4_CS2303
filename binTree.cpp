@@ -54,7 +54,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
 			break;
 		case 0: //if id is same
 			//addStore((*curr).getStores, newStore);
-		  addStore(curr, newStore);
+			addStore(curr, newStore);
 			equal=true;
 			break;
 		case 1: //If id is greater
@@ -68,6 +68,7 @@ bool Tree::addItem(ItemPtr newItem, StorePtr newStore){ //Author: Alexi
   if (prev==NULL) //If tree is empty
   {
 	root = newItem;
+	addStore(root, newStore);
   } else if (!equal) { 
 	idComp = prev->id_compare(newItem); //compares previous and new
 	switch (idComp) {

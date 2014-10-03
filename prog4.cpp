@@ -59,12 +59,14 @@ int main () //Author: Alexi
 	  }
 	  break;
 	case 2: //test addItem. Seems to work fine
-	  cout<<"Testing addItem\n";
+	  cout<<"\nTesting addItem\n";
 		{
 		ItemPtr L1 = new Item("L1");
 	    ItemPtr L2 = new Item("L2");
 	    ItemPtr M2 = new Item("M2");
 	    ItemPtr L2_2 = new Item("L2");
+		ItemPtr A7 = new Item("A7");
+	    ItemPtr S2 = new Item("S2");
 		
 		Store s0 = {0,0,0, 4, NULL};
 	    Store s1 = {1, 1, 1, 3, NULL};
@@ -96,10 +98,20 @@ int main () //Author: Alexi
 		cout<<"Added fourth successfully\n";
 		cout << "Printing Tree:\n\n";
 		itemTree->PrintTree();
+		
+		itemTree->addItem(A7, &s2);
+		cout<<"Added fourth successfully\n";
+		cout << "Printing Tree:\n\n";
+		itemTree->PrintTree();
+		
+		itemTree->addItem(S2, &s2);
+		cout<<"Added fifth successfully\n";
+		cout << "Printing Tree:\n\n";
+		itemTree->PrintTree();
 		}
 		break;
 	case 3: //tests basic addStore
-	  cout << "Testing addStore\n";
+	  cout << "\nTesting addStore\n";
 	  {
 	    ItemPtr L1 = new Item("L1");
 	    ItemPtr L2 = new Item("L2");
@@ -135,22 +147,11 @@ int main () //Author: Alexi
 	    addStore(L1, &s3);
 	    cout << "Printing store list\n";
 	    printStoreList(L1->getStores());
-		
-		/*
-		cout << "Going to add following store\n";
-		printStore(&s1);
-		addStore (L1, &s1);
-		cout << "Printing store list\n";
-		printStoreList(L1->getStores());
-		cout << "Going to add following store\n";
-		printStore(&s3);
-		addStore (L1, &s3);
-		cout << "Printing store list\n";
-		printStoreList(L1->getStores()); */
+
 		}
 		break;
 	case 4: //tests addStore on tree
-		cout << "Testing addStore\n";
+		cout << "\nTesting addStore\n";
 		{
 		ItemPtr L1 = new Item("L1");
 	    ItemPtr L2 = new Item("L2");
@@ -160,38 +161,51 @@ int main () //Author: Alexi
 		Store s0 = {0,0,0, 4, NULL};
 	    Store s1 = {1, 1, 1, 3, NULL};
 	    Store s2 = {2, 2, 1, 3, NULL};
-	    Store s3 = {1, 1, 1, 3, NULL};
+	    Store s3 = {1, 1, 1, 6, NULL};
 		
-		cout << "Testing item:\n";
-		//L1->printItem();
-		//L2->printItem();
-		//M2->printItem();
-		cout << "Adding to tree\n";
-		
+		cout << "Adding " << L2->getName() << " and store\n";
+		printStore(&s0);
+		cout <<endl;
 		itemTree->addItem(L2, &s0);
-		cout<<"Added first successfully\n";
+		cout<<"Added first successfully, item at root is:\n";
+		itemTree->getRoot()->printItem();
 		cout<<"Printing store list:\n";
 		printStoreList(((*itemTree).getRoot())->getStores());
 		cout<<endl;
 		
+		cout << "Adding " << M2->getName() << " and store\n";
+		printStore(&s1);
+		cout <<endl;
 		itemTree->addItem(M2, &s1);
 		cout<<"Added second successfully\n";
 		cout<<"Printing store list:\n";
 		printStoreList(((*itemTree).getRoot())->getStores());
 		cout<<endl;
-
+		
+		cout << "Adding " << L1->getName() << " and store\n";
+		printStore(&s2);
+		cout <<endl;
 		itemTree->addItem(L1, &s2);
 		cout<<"Added third successfully\n";
 		cout<<"Printing store list:\n";
 		printStoreList(((*itemTree).getRoot())->getStores());
 		cout<<endl;
-
+		
+		cout << "Adding " << L2_2->getName() << " and store\n";
+		printStore(&s3);
+		cout <<endl;
 		itemTree->addItem(L2_2, &s3);
 		cout<<"Added fourth successfully\n";
 		cout<<"Printing store list:\n";
 		printStoreList(((*itemTree).getRoot())->getStores());
 		}
 		break;
+	case 5: //test readData
+		cout << "\nTesting ReadData\n";
+		{
+			ReadData(*itemTree);
+			itemTree->PrintTree();
+		}
 	default:
 	  cout<<"Improper or no test chosen\n";
 	  break;
@@ -232,11 +246,11 @@ void ReadData(Tree tree) //Author: Alexi
 		{
 			cin>>name;
 			cin>>itemCount;
-			/*
+			
 			Store tempStore = {x, y, z, itemCount, NULL};
 			//make pointer to tempStore
-			Item tempItem = new Item(name);
-			tree.addItem(tempItem, tempStore); */
+			ItemPtr tempItem = new Item(name);
+			tree.addItem(tempItem, &tempStore); 
 		}
 	} //end for
 } //end ReadData
@@ -247,6 +261,8 @@ void instructions() //Author: Alexi
 	cout << "Choice of 1 currently tests: store_compare" << endl;
 	cout << "Choice of 2 currently tests: addItem and PrintTree\n";
 	cout << "Choice of 3 currently tests: addStore and printStores()\n";
+	cout << "Choice of 4 currently tests: addItem and addStore on tree\n";
+	cout << "Choice of 5 currently tests: ReadData()\n";
 	cout <<"Please enter a test choice:";
 }
 #endif

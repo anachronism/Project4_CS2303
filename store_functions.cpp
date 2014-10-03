@@ -160,8 +160,6 @@ void printStoreList(StorePtr *store){ //Author: Alexi
 	StorePtr curr;
 	StorePtr prev;
 	
-	cout<<"printing store list"<<endl;
-
 	prev = NULL;
 	
 	if ((*store) == NULL){
