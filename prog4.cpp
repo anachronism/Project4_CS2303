@@ -7,10 +7,10 @@
 #include "binTree.h"
 #include "item.h"
 #include "binTree.cpp"
-//#include "id_compare.cpp"
 #include "store_functions.cpp"
 #include "item.cpp"
 
+bool debugRead = true;
 void ReadData(Tree tree);
 void instructions();
 //void addStore(ItemPtr itPtr, StorePtr newStore);
@@ -250,8 +250,18 @@ void ReadData(Tree tree) //Author: Alexi
 			Store tempStore = {x, y, z, itemCount, NULL};
 			//make pointer to tempStore
 			ItemPtr tempItem = new Item(name);
+			if (debugRead){
+				cout << "Printing temporary item and store\n";
+				tempItem->printItem();
+				printStore(&tempStore);
+			}
+			if (debugRead)
+				cout << "Adding item:\n";
 			tree.addItem(tempItem, &tempStore); 
 		}
+		if (debugRead)
+			cout << "Printing tree:\n";
+		tree.PrintTree();
 	} //end for
 } //end ReadData
 

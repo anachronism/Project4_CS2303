@@ -3,6 +3,7 @@
 #define ITEM_CPP
 
 #include "global.h"
+#include "store_functions.cpp"
 #include "item.h"
 
 //Constructors.
@@ -81,6 +82,7 @@ void Item::setStores(StorePtr *store){
 
 void Item::printItem(){
 	cout<<"Name of Item is:" << name << endl;
+	printStoreList(stores);
 }
 
 #endif

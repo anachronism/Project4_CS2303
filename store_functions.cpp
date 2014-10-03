@@ -52,7 +52,7 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 	if ((*sPtr) == NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
 		*sPtr = new Store();
 		(*sPtr) = newStore;
-		cout<<"set beginning of list"<<endl;
+		//cout<<"set beginning of list"<<endl;
 	} 
 	else {
 	  
@@ -165,7 +165,7 @@ void printStoreList(StorePtr *store){ //Author: Alexi
 	if ((*store) == NULL){
 		cout << "Store List is empty\n";
 	} else {
-	  cout<<(*store)->itemCount<<endl;
+	  //cout<< "Store itemCount:" << (*store)->itemCount<<endl;
 		curr = *store;
 		while (curr!=NULL){
 			printStore(curr);

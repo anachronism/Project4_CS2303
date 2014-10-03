@@ -10,7 +10,7 @@
 #include "store_functions.cpp"
 void addStore(ItemPtr itPtr, StorePtr newStore);
 
-bool debugAdd = true;
+bool debugAdd = false;
 //default constructor
 Tree::Tree()
 {
