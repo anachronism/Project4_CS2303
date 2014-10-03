@@ -117,15 +117,16 @@ int main () //Author: Alexi
 		cout << "Going to add following store\n";
 		printStore(&s0);
 		cout<<endl;
-
 		addStore(L1, &s0);
-
-		cout<<"printing store list now"<<endl;
+		
+		//cout<<"printing store list now"<<endl;
 
 		printStoreList(L1->getStores());
 		
 		addStore(L1, &s1);
+		printStoreList(L1->getStores());
 		addStore(L1, &s2);
+		cout<<"printed third store"<<endl;
 		addStore(L1, &s3);
 		cout << "Printing store list\n";
 		printStoreList(L1->getStores());

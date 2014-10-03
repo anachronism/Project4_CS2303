@@ -47,7 +47,8 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		printStore(newStore);
 	}
 
-	if (sPtr==NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
+
+	if ((*sPtr)==NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
 		sPtr = new StorePtr();
 		(*sPtr) = newStore;
 		//currentPtr=NULL;
@@ -59,7 +60,11 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 	  
 	  while(currentPtr!= NULL){
 	    if(store_compare(currentPtr, newStore) == 0)
-	      storeExists = 1;
+	      {
+		(newStore->itemCount) += (currentPtr->itemCount);
+		removeStore(sPtr, currentPtr);
+		addStore(itPtr, newStore);
+	      }
 	    
 	    previousPtr = currentPtr;
 	    currentPtr = currentPtr->nextStore;
@@ -76,7 +81,7 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 	  cout<<"new x, y, z: " << newStore->x << newStore->y << newStore->z<<endl;
 	  cout<<"Store Compare: "<<store_comp<<endl;
 			
-	  while((store_comp == -1 && currentPtr != NULL && storeExists == 0)|| (store_comp != 0 && storeExists == 1 && currentPtr != NULL) ){
+	  while(store_comp == -1 && currentPtr != NULL ){
 	    previousPtr = currentPtr;
 	    currentPtr = currentPtr->nextStore;
 	    store_comp = store_compare(currentPtr, newStore);
@@ -92,16 +97,20 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		//If the store location of the current store is the same as the new one,
 		//add the number of items in the current store to the new store and
 		//call the function again.
+
+
+		/*
 		else if(store_comp == 0){
 		  
 		  ////////
 		  cout<<"Compared the same location"<<endl;
-
 		  Store alteredStore = *newStore;
 		  (newStore->itemCount) += (currentPtr->itemCount);
 		  removeStore(sPtr, currentPtr);
 		  addStore(itPtr, newStore);
 		}
+		*/
+
 
 		//Elsewise, insert the store normally.
 		else if(store_comp == 1){
@@ -116,7 +125,7 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 	}
 
 	itPtr->setStores(sPtr);	
-	cout<<"end of add item"<<endl;
+	cout<<"end of add store"<<endl;
 }
 
 void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
