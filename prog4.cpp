@@ -272,12 +272,12 @@ void ReadData(Tree tree) //Author: Alexi
 				printStore(tempStorePtr);
 			}
 			if (debugRead){
-			  tree.PrintTree();
+			  //tree.PrintTree();
 			  cout << "Adding item:\n";
 			}
 			tree.addItem(tempItem, tempStorePtr); 
-			cout << "\n TREE \n";
-			tree.PrintTree();
+			//cout << "\n TREE \n";
+			//tree.PrintTree();
 		}
 		if (debugRead)
 			cout << "Printing tree:\n";
