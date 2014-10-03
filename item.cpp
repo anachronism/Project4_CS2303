@@ -17,7 +17,8 @@ Item::Item(){
 
 Item::Item(string newName){
   name = newName;
-  stores = NULL;
+  stores = new StorePtr();
+  *stores = NULL;
   left = NULL;
   right = NULL;
 }

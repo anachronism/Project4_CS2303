@@ -3,6 +3,7 @@
 #include "global.h"
 #include "item.h"
 #include "item.cpp"
+#define DEBUGSTORE 0
 bool debugAddStore = false;
 
 // If stores are the same, return 0, if the new store has more items than the current store, return 
@@ -48,38 +49,43 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 	}
 
 
-	if ((*sPtr)==NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
-		sPtr = new StorePtr();
+	if ((*sPtr) == NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
+		*sPtr = new Store();
 		(*sPtr) = newStore;
-		//currentPtr=NULL;
+		cout<<"set beginning of list"<<endl;
 	} 
 	else {
-	  currentPtr = *sPtr;
-
-	  //Test traversal
 	  
+	  currentPtr = *sPtr;
+	  
+	  //Test traversal
+
 	  while(currentPtr!= NULL){
 	    if(store_compare(currentPtr, newStore) == 0)
 	      {
+		if(DEBUGSTORE) cout<< "found a repeat" <<endl;
 		(newStore->itemCount) += (currentPtr->itemCount);
 		removeStore(sPtr, currentPtr);
+		itPtr->setStores(sPtr);
 		addStore(itPtr, newStore);
+		return;
 	      }
-	    
+	    if(DEBUGSTORE) cout<<"current store" << currentPtr->x << ' ' << currentPtr->y << ' ' << currentPtr->z<<endl;
+
 	    previousPtr = currentPtr;
 	    currentPtr = currentPtr->nextStore;
 	  }
 
-	  cout<<"Store exists:"<<storeExists<< endl;
-
 	  currentPtr = *sPtr;
+	  previousPtr = NULL;
+
 	  store_comp = store_compare(currentPtr, newStore);
 	  cout<<"store compare:"<<store_comp<<endl;
 		
 	  //test
-	  cout<<"Current x, y, z: "<< currentPtr->x << currentPtr->y << currentPtr->z <<endl;
-	  cout<<"new x, y, z: " << newStore->x << newStore->y << newStore->z<<endl;
-	  cout<<"Store Compare: "<<store_comp<<endl;
+	  if(DEBUGSTORE)cout<<"Current x, y, z: "<< currentPtr->x << currentPtr->y << currentPtr->z <<endl;
+	  if(DEBUGSTORE)cout<<"new x, y, z: " << newStore->x << newStore->y << newStore->z<<endl;
+	  if(DEBUGSTORE)cout<<"Store Compare: "<<store_comp<<endl;
 			
 	  while(store_comp == -1 && currentPtr != NULL ){
 	    previousPtr = currentPtr;
@@ -96,20 +102,7 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		}
 		//If the store location of the current store is the same as the new one,
 		//add the number of items in the current store to the new store and
-		//call the function again.
-
-
-		/*
-		else if(store_comp == 0){
-		  
-		  ////////
-		  cout<<"Compared the same location"<<endl;
-		  Store alteredStore = *newStore;
-		  (newStore->itemCount) += (currentPtr->itemCount);
-		  removeStore(sPtr, currentPtr);
-		  addStore(itPtr, newStore);
-		}
-		*/
+		//call the function
 
 
 		//Elsewise, insert the store normally.
@@ -136,7 +129,7 @@ void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
   if(*sPtr == toRemove){
     tempPtr = *sPtr;
     *sPtr = (*sPtr)->nextStore;
-    free(tempPtr);
+    //delete tempPtr;
   }
   else{
     previousPtr = *sPtr;
@@ -149,7 +142,7 @@ void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
     if(currentPtr != NULL){
       tempPtr = currentPtr;
       previousPtr->nextStore = currentPtr->nextStore;
-      free(tempPtr);
+      //delete tempPtr;
     }
   }
 }
@@ -171,7 +164,7 @@ void printStoreList(StorePtr *store){ //Author: Alexi
 
 	prev = NULL;
 	
-	if (store == NULL){
+	if ((*store) == NULL){
 		cout << "Store List is empty\n";
 	} else {
 	  cout<<(*store)->itemCount<<endl;
