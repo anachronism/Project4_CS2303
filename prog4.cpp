@@ -120,10 +120,11 @@ int main () //Author: Alexi
 
 		addStore (L1, &s0);
 		addStore(L1, &s1);
-		//addStore(L1, &s2);
-		//addStore(L1, &s3);
+		addStore(L1, &s2);
+		addStore(L1, &s3);
 		cout << "Printing store list\n";
 		printStoreList(L1->getStores());
+		
 		/*
 		cout << "Going to add following store\n";
 		printStore(&s1);

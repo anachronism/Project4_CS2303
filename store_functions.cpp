@@ -48,6 +48,8 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 	if (sPtr==NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
 		sPtr = new StorePtr();
 		(*sPtr) = newStore;
+		/////
+		cout<<"1"<<endl;
 		//currentPtr=NULL;
 	} else {
 		currentPtr = *sPtr;
