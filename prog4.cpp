@@ -10,8 +10,8 @@
 #include "store_functions.cpp"
 #include "item.cpp"
 
-bool debugRead = true;
-void ReadData(Tree tree);
+bool debugRead = false;
+void ReadData(Tree itemTree);
 void instructions();
 //void addStore(ItemPtr itPtr, StorePtr newStore);
 
@@ -204,6 +204,7 @@ int main () //Author: Alexi
 		cout << "\nTesting ReadData\n";
 		{
 			ReadData(*itemTree);
+			cout << "Read Data completing properly:\n";
 			itemTree->PrintTree();
 		}
 	default:
@@ -213,13 +214,15 @@ int main () //Author: Alexi
 	
 	//code for after testing is complete	
 	//ReadData(*itemTree);
+	//cout << "Read Data completing properly:\n";
 	//itemTree->PrintTree();
 	
 	return 0;
 }
 
-void ReadData(Tree tree) //Author: Alexi
+void ReadData(Tree itemTree) //Author: Alexi
 {
+	Tree tree = itemTree;
 	int Sentinel = 0, counter = 0, itemCount = 0;
 	string name;
 	Store tempStore;
