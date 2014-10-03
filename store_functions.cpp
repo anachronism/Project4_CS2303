@@ -165,7 +165,7 @@ void printStoreList(StorePtr *store){ //Author: Alexi
 	if ((*store) == NULL){
 		cout << "Store List is empty\n";
 	} else {
-	  cout<< "Store itemCount:" << (*store)->itemCount<<endl;
+	  //cout<< "Store itemCount:" << (*store)->itemCount<<endl;
 		curr = *store;
 		while (curr!=NULL){
 			printStore(curr);

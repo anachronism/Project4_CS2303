@@ -11,7 +11,7 @@
 #include "item.cpp"
 
 bool debugRead = false;
-void ReadData(Tree itemTree);
+void ReadData(Tree *cleanTree);
 void instructions();
 //void addStore(ItemPtr itPtr, StorePtr newStore);
 
@@ -23,15 +23,13 @@ int main () //Author: Alexi
 	Tree *itemTree; 
 	itemTree = new Tree();
 	
+	/*
 	int testChoice;
 	instructions();
 	cin>>testChoice;
 	//driver test function
 	switch (testChoice) 
 	{
-
-	  //emacs is messing with the whitespaces so I changed these, you can
-	  //change them back.
 	case 0: 
 	  {
 	    ItemPtr L1 = new Item("L1");
@@ -210,19 +208,19 @@ int main () //Author: Alexi
 	default:
 	  cout<<"Improper or no test chosen\n";
 	  break;
-	}
+	} */
 	
 	//code for after testing is complete	
-	//ReadData(*itemTree);
+	ReadData(itemTree);
 	//cout << "Read Data completing properly:\n";
-	//itemTree->PrintTree();
+	itemTree->PrintTree();
 	
 	return 0;
 }
 
-void ReadData(Tree itemTree) //Author: Alexi
+void ReadData(Tree *cleanTree) //Author: Alexi
 {
-	Tree tree = itemTree;
+	Tree tree = *cleanTree;
 	int Sentinel = 0, counter = 0, itemCount = 0;
 	string name;
 	Store tempStore;
@@ -286,7 +284,8 @@ void ReadData(Tree itemTree) //Author: Alexi
 			cout << "Printing tree:\n";
 		
 	} //end for
-	tree.PrintTree();
+	//tree.PrintTree();
+	*cleanTree = tree;
 } //end ReadData
 
 void instructions() //Author: Alexi
