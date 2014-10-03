@@ -119,6 +119,9 @@ int main () //Author: Alexi
 		cout<<endl;
 
 		addStore(L1, &s0);
+
+		cout<<"printing store list now"<<endl;
+
 		printStoreList(L1->getStores());
 		
 		addStore(L1, &s1);
