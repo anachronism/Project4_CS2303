@@ -107,18 +107,20 @@ int main () //Author: Alexi
 	    ItemPtr L2_2 = new Item("L2");
 		
 	    Store s0 = {0,0,0, 4, NULL};
-	    Store s1 = {1, 1, 1, 3, NULL};
-	    Store s2 = {2, 2, 1, 2, NULL};
-	    Store s3 = {1, 1, 1, 5, NULL};
-	    /*
+	    Store s1 = {1, 1, 1, 5, NULL};
+	    Store s2 = {2, 2, 1, 6, NULL};
+	    Store s3 = {1, 1, 1, 7, NULL};
+	    
 		cout<<"Printing store list for L1:\n";
-		printStoreList(L1->getStores());
-	    */
+		printStoreList((L1->getStores()));
+	    
 		cout << "Going to add following store\n";
 		printStore(&s0);
 		cout<<endl;
 
-		addStore (L1, &s0);
+		addStore(L1, &s0);
+		printStoreList(L1->getStores());
+		
 		addStore(L1, &s1);
 		addStore(L1, &s2);
 		addStore(L1, &s3);

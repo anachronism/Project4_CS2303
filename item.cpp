@@ -74,8 +74,8 @@ StorePtr *Item::getStores(){
 	}
 }
 
-void Item::setStores(StorePtr store){
-  stores = &store;
+void Item::setStores(StorePtr *store){
+  stores = store;
 }
 
 void Item::printItem(){

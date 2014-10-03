@@ -15,22 +15,23 @@ int store_compare(StorePtr currentStore, StorePtr newStore){ //Author: Max
 	return -2;
   } else if (currentStore->x == newStore->x && currentStore->y == newStore->y && currentStore->z == newStore->z) {
     return 0;
-  } else if(currentStore->itemCount <= newStore->itemCount){
+  } else if((currentStore->itemCount) <= (newStore->itemCount)){
     return 1;
   }
-  else{        //if(currentStore->itemCount > newStore->itemCount)
+  else if((currentStore->itemCount) > (newStore->itemCount))
     return -1;
-  }
+ else return -5;
 }
 
 //Given a pointer to the head pointer, inserts a new store in
 //decreasing item count order.
 //void addStore(StorePtr *sPtr, StorePtr newStore) //Author: Max
+
 void addStore(ItemPtr itPtr, StorePtr newStore)
 {
   int store_comp;
-  StorePtr previousPtr;
-  StorePtr currentPtr;
+  StorePtr previousPtr = new Store();
+  StorePtr currentPtr = new Store();
   StorePtr *sPtr;
   sPtr = itPtr->getStores();
 
@@ -45,25 +46,30 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		cout<<"Printing newStore:\n";
 		printStore(newStore);
 	}
+
 	if (sPtr==NULL){ //if Null then Store ** is NULL so trying to use *sPtr, meaning a Store *, makes a seg fault
 		sPtr = new StorePtr();
 		(*sPtr) = newStore;
 		/////
-		cout<<"1"<<endl;
+		cout<<(*sPtr)->x<<endl;
 		//currentPtr=NULL;
-	} else {
-		currentPtr = *sPtr;
-
-		store_comp = store_compare(currentPtr, newStore);
+	} 
+	else {
+	  currentPtr = *sPtr;
 		
-		//test
-		cout<<store_comp<<endl;
+	  store_comp = store_compare(currentPtr, newStore);
+		
+	  //test
+	  cout<<store_comp<<endl;
 			
-		while(store_comp == -1 && currentPtr != NULL){
-			previousPtr = currentPtr;
-			currentPtr = currentPtr->nextStore;
-			store_comp = store_compare(currentPtr, newStore);
-		}
+	  while(store_comp == -1 && currentPtr != NULL){
+	    previousPtr = currentPtr;
+	    currentPtr = currentPtr->nextStore;
+	    store_comp = store_compare(currentPtr, newStore);
+
+	    //
+	    cout<<store_comp<<endl;
+	  }
 		//Check conditions for the while to end.
 		//If at front of list (and not the same as the front of the list, place in the front.
 		if(previousPtr == NULL && store_compare(currentPtr, newStore) != 0){
@@ -94,7 +100,11 @@ void addStore(ItemPtr itPtr, StorePtr newStore)
 		}
 	}
 
-	itPtr->setStores(*sPtr);
+	itPtr->setStores(sPtr);
+	///////
+	cout<<(*sPtr)->x<<endl;
+	cout<<(*(itPtr->getStores()))->x<<endl;
+
 }
 
 void removeStore(StorePtr *sPtr,StorePtr toRemove){ //author: Max
@@ -141,6 +151,7 @@ void printStoreList(StorePtr *store){ //Author: Alexi
 	if (store == NULL){
 		cout << "Store List is empty\n";
 	} else {
+	  cout<<(*store)->itemCount<<endl;
 		curr = *store;
 		while (curr!=NULL){
 			printStore(curr);

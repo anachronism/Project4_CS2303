@@ -17,7 +17,7 @@ class Item{
 		void setLeft(Item *);
 		void setRight(Item *);
 		StorePtr *getStores();
-		void setStores(StorePtr);
+		void setStores(StorePtr *);
 		void printItem();
 		
 	private:
